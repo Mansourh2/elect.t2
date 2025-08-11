@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle version="9.7.0">
+<drawing>
+<settings>
+<setting alwaysvectorfont="yes"/>
+<setting verticaltext="down"/>
+</settings>
+<grid distance="100" unitdist="mil" unit="mil" style="dots" multiple="2" display="yes" altdistance="10" altunitdist="mil" altunit="mil"/>
+<layers>
+<layer number="1" name="TopLayer" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="BottomLayer" color="3" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="PadsLayer" color="5" fill="1" visible="yes" active="yes"/>
+<layer number="18" name="ViasLayer" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="19" name="UnroutedLayer" color="8" fill="1" visible="yes" active="yes"/>
+<!-- Changed color numbers and names for visibility -->
+<layer number="20" name="DimLayer" color="10" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlaceLayer" color="9" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlaceLayer" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOriginLayer" color="13" fill="1" visible="yes" active="yes"/>
+<!-- Add more layers with custom names and colors -->
+</layers>
+<board>
+<plain>
+<wire x1="0" y1="0" x2="250.0" y2="0" width="0" layer="20"/>
+<wire x1="250.0" y1="0" x2="250.0" y2="120.0" width="0" layer="20"/>
+<wire x1="250.0" y1="120.0" x2="0" y2="120.0" width="0" layer="20"/>
+<wire x1="0" y1="120.0" x2="0" y2="0" width="0" layer="20"/>
+</plain>
+<libraries>
+<library name="TinkerTools" urn="urn:adsk.eagle:library:30980022">
+<packages>
+<package name="ARDUINO-MODEL-R3" urn="urn:adsk.eagle:footprint:32102430/2"><description>Arduino compatible footprint with additional pins</description><wire x1="-24.13" y1="-29.21" x2="-17.17" y2="-29.21" width="0.254" layer="51"/>
+<!-- Modify the footprint details -->
+</package>
+</packages>
+</library>
+</libraries>
+<elements>
+<element name="ACTUATOR1" library="TinkerTools" library_urn="urn:adsk.eagle:library:30980022" package="SG90" package3d_urn="urn:adsk.eagle:package:32659983/3" value="SERVO01" x="150.0" y="80.0" smashed="yes"/>
+<!-- Change names and positions -->
+<element name="ACTUATOR2" library="TinkerTools" library_urn="urn:adsk.eagle:library:30980022" package="SG90" package3d_urn="urn:adsk.eagle:package:32659983/3" value="SERVO02" x="200.0" y="80.0" smashed="yes"/>
+</elements>
+<signals>
+<signal name="SERVO_SIGNAL_1">
+<contactref element="ACTUATOR1" pad="1"/>
+<contactref element="ACTUATOR2" pad="1"/>
+<!-- Rework the signal paths -->
+<wire x1="150.0" y1="80.0" x2="180.0" y2="80.0" width="0" layer="19"/>
+</signal>
+</signals>
+</board>
+</drawing>
+<compatibility>
+<note version="8.3" severity="warning">New version incompatibility warnings</note>
+</compatibility>
+</eagle>
